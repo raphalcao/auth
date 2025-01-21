@@ -35,4 +35,14 @@ return [
         ],
     ],
 
+    'cognito' => [
+        'account_id' => env('AWS_ACCOUNT_ID'),
+        'key' => env('AWS_ACCESS_KEY_ID'),
+        'secret' => env('AWS_SECRET_ACCESS_KEY'),
+        'region' => env('AWS_REGION'),
+        'user_pool_id' => env('AWS_COGNITO_USER_POOL_ID'),
+        'client_id' => env('AWS_COGNITO_CLIENT_ID'),
+        'client_secret' => env('AWS_COGNITO_CLIENT_SECRET'), // Opcional
+    ],
+
 ];

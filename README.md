@@ -8,13 +8,9 @@
     <img width="100%" alt="01 Captura de tela" src="https://github.com/user-attachments/assets/dc89700a-d777-4754-ac7f-d2c4b73764de">
 </a>
 
-## INTEGRANTES - GRUPO 47
+## INTEGRANTE
 
-- RM354121 - Lucas
-- RM354259 - Thiago
 - RM353824 - Raphael
-- RM355935 - Lucas
-- RM354852 - Mauro
 
 ## Documentação DDD - Domain Driven Design
 
@@ -26,7 +22,7 @@ Documentação do sistema (DDD) com Event Storming, incluindo todos os passos/ti
 módulo de DDD, e utilizando a linguagem ubíqua, dos seguintes fluxos:
 
  - Autenticação de usuário; 
- - Download do .zip do arquivo.
+ - Download do .zip do arquivo de imagem.
 
 
 ## Passo a passo para inicialização da aplicação
