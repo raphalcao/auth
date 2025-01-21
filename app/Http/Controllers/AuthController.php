@@ -55,6 +55,6 @@ class AuthController extends Controller
             return response()->json(['error' => $authResult], 401);
         }
 
-        return response()->json($authResult);
+        return response()->json($authResult);//teste
     }
 }
