@@ -36,4 +36,35 @@ class UserRepository implements UserRepositoryInterface
             return 'error inserting user: ' . $e->getMessage();
         }
     }
+    public function find(string $email)
+    {
+        return User::where('email', $email)->first();
+    }
+
+    /**
+     * Atualiza os dados de acesso do usuário no banco de dados.
+     *
+     * @param string $email O email do usuário.
+     * @param Result $response A resposta do AWS Cognito.
+     * @return void
+     */
+    public function update(string $email, $response): void
+    {
+        try {
+            $user = $this->find($email);
+
+            if (!$user) {
+                throw new \Exception("User with email {$email} not found.");
+            }
+
+            $expiresIn = $response['AuthenticationResult']['ExpiresIn'];
+            $expirationDatetime = Carbon::now()->addSeconds($expiresIn);
+            $user->update([
+                'token' => $response['AuthenticationResult']['AccessToken'] ?? NULL,
+                'expired_date' => $expirationDatetime,
+            ]);
+        } catch (\Exception $e) {
+            throw new \Exception('error updating user: ' . $e->getMessage());
+        }
+    }
 }

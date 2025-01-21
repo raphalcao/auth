@@ -68,6 +68,7 @@ class CognitoService
                     'SECRET_HASH' => $secretHash,
                 ],
             ]);
+            $user = $this->userRepositoryInterface->update($email, $response);
 
             return $response['AuthenticationResult'];
         } catch (\Aws\Exception\AwsException $e) {

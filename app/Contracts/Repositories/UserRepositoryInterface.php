@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Contracts\Repositories;
+
 use Aws\Result;
 
 interface UserRepositoryInterface
@@ -15,5 +16,21 @@ interface UserRepositoryInterface
      * @return string Mensagem de sucesso ou erro.
      * @return string Array response.
      */
-    public function insert(string $cognitoUserId, string $email,string $password, string $name, Result $response): string;
+    public function insert(string $cognitoUserId, string $email, string $password, string $name, Result $response): string;
+
+    /**
+     * Localiza o usuário no banco de dados.
+     *
+     * @param string $email O email do usuário.
+     */
+    public function find(string $email);
+
+    /**
+     * Atualiza os dados de acesso do usuário no banco de dados.
+     *
+     * @param string $email O email do usuário.
+     * @param Result $response A resposta do AWS Cognito.
+     * @return void
+     */
+    public function update(string $email, Result $response): void;
 }
