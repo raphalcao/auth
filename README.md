@@ -1,66 +1,123 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# FIAP - TECH CHALLENGE - SOFTWARE ARCHITECTURE
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Link do Vídeo com a explicação e execução do projeto
 
-## About Laravel
+[https://youtu.be/pG4ELz6mip8](https://youtu.be/pG4ELz6mip8)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<a href="https://youtu.be/pG4ELz6mip8">
+    <img width="100%" alt="01 Captura de tela" src="https://github.com/user-attachments/assets/dc89700a-d777-4754-ac7f-d2c4b73764de">
+</a>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## INTEGRANTES - GRUPO 47
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- RM354121 - Lucas
+- RM354259 - Thiago
+- RM353824 - Raphael
+- RM355935 - Lucas
+- RM354852 - Mauro
 
-## Learning Laravel
+## Documentação DDD - Domain Driven Design
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Link para a documentação do DDD no site do Miro:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+[https://miro.com/app/board/uXjVLsoT7N4=/](https://miro.com/app/board/uXjVLsoT7N4=/)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Documentação do sistema (DDD) com Event Storming, incluindo todos os passos/tipos de diagrama do 
+módulo de DDD, e utilizando a linguagem ubíqua, dos seguintes fluxos:
 
-## Laravel Sponsors
+ - Autenticação de usuário; 
+ - Download do .zip do arquivo.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+## Passo a passo para inicialização da aplicação
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Se tiver o Make instalado
 
-## Contributing
+Use os commandos: 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    `make start`
 
-## Code of Conduct
+Para fazer a limpeza da aplicação, use o comando:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    `make clean`
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Se não tiver o Make instalado
 
-## License
+1. Clone o repositório  
+   `git clone https://github.com/raphalcao/auth.git`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. Acesse a pasta do projeto com o terminal 
+
+3. Copie o arquivo `.env.example` para `.env`    
+   `cp .env.example .env`
+
+4. Iniciando os containers do Docker.  
+   Esse processo pode demorar um pouco na primeira vez que for executado, pois o docker irá baixar as imagens necessárias para a execução dos containers.  
+   Execute o comando:    
+   `docker-compose up -d`
+
+5. Acesse o container da aplicação com o comando:  
+   `docker exec -it php bash`
+
+6. Para instalar as dependências do projeto, execute o comando dentro do container:  
+   `composer install`
+
+7. Crie uma chave para a aplicação com o comando:  
+   `php artisan key:generate`
+
+8. Para criar as tabelas no banco de dados, execute o comando:  
+   `php artisan migrate:fresh`
+
+9. Para popular o banco de dados, execute o comando:  
+   `php artisan db:seed`
+
+10. Acesse a aplicação com o endereço  
+    [http://localhost:8100](http://localhost:8100)
+
+11. Acesse o Swagger com o endereço  
+    [http://localhost:8100/api/documentation](http://localhost:8100/api/documentation)
+
+## Para remover a aplicação
+
+### Se tiver o Make instalado, use o comando:
+
+    `make clean`
+
+### Se não tiver o Make instalado, siga os passos abaixo:
+
+1. Execute o comando  
+   `docker-compose down`
+2. **(Recomendado)** excluir a pasta do mysql dentro de ./docker/database/volumes/mysql. Vai poupar espaço.  
+   `rm -Rf ./docker/database/volumes/mysql`
+
+
+## Kubernetes
+
+### Requisitos
+1. Docker 
+2. Minikube
+
+### Passo a passo para inicialização da aplicação
+
+1. Inicie o Minikube 
+   `minikube start`
+2. Habilite o addon de Ingress no Minikube 
+   `minikube addons enable ingress`
+3. Habilite o addon de Metrics no Minikube 
+   `minikube addons enable metrics-server`
+4. Aplique os arquivos de deploy do Kubernetes
+   `make kubectl-deploy-apply`
+5. Para ver o endereço da aplicação, obtenha o IP do Minikube 
+   `minikube ip`      
+6. Para ver o endereço da aplicação, obtenha o IP do Minikube 
+   `minikube dashboard`      
+
+### Passo a passo para remover da aplicação
+
+1. Remover os arquivos de deploy do Kubernetes
+   `make kubectl-deploy-delete`
+2. Pare o minikube
+   `minikube stop`
+3. Delete o minikube
+   `minikube delete`
