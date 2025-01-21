@@ -18,9 +18,13 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
+        'cognito_user_id',
         'name',
-        'email',
+        'email',        
         'password',
+        'token',
+        'expired_date',
+        'email_verified_at',
     ];
 
     /**
