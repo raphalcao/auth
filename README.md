@@ -74,6 +74,39 @@ Para fazer a limpeza da aplicação, use o comando:
 11. Acesse o Swagger com o endereço  
     [http://localhost:8100/api/documentation](http://localhost:8100/api/documentation)
 
+
+### Se tiver usando sistema operacional Windows, faça o seguinte passo: (Necessário ter instalado o docker desktop)
+
+No Docker Desktop habilitar o uso com o wsl. 
+
+1. Instalar o Docker Desktop (se não estiver instalado)
+   1. Baixe e instale o Docker Desktop.
+      Durante a instalação, certifique-se de habilitar a integração com o WSL 2.
+
+2. Habilitar a Integração do Docker com o WSL 2
+   1. Abra o Docker Desktop.
+   2. Clique no ícone de configurações (⚙️).
+   3. Vá até Resources > WSL Integration.
+   4. Ative a opção Enable the integration with my default WSL distro.
+   5. Certifique-se de selecionar a distribuição que você está usando (ex.: Ubuntu).
+
+
+No PowerShell:
+
+1. No PowerShell, execute: wsl --install
+
+2. No terminal wsl: 
+      sudo apt update
+      sudo apt install make
+
+3. Verifique se o Make está funcionando:
+   make --version
+
+4. Ir para o diretório que está o arquivo Marketfile. Ex: 
+   cd /mnt/c/xampp/htdocs/auth
+   Utilizar este trecho cd /mnt/ e adicionar o restante do seu diretório local
+
+
 ## Para remover a aplicação
 
 ### Se tiver o Make instalado, use o comando:
@@ -87,6 +120,9 @@ Para fazer a limpeza da aplicação, use o comando:
 2. **(Recomendado)** excluir a pasta do mysql dentro de ./docker/database/volumes/mysql. Vai poupar espaço.  
    `rm -Rf ./docker/database/volumes/mysql`
 
+3. **OBS** Caso apresente erro de porta via wsl, execute o container do mysql via powerShell do windows.
+   docker compose down
+   docker compose up -d
 
 ## Kubernetes
 
