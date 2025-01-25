@@ -29,7 +29,7 @@ class CognitoService
     public function registerUser($email, $password, $name = null)
     {
 
-        try {
+        try {          
             $secretHash = $this->generateSecretHash($email);
             $response = $this->client->signUp([
                 'ClientId' => config('services.cognito.client_id'),
@@ -50,6 +50,7 @@ class CognitoService
 
             return $response;
         } catch (AwsException $e) {
+            
             return $e->getMessage();
         }
     }
@@ -68,7 +69,7 @@ class CognitoService
                     'SECRET_HASH' => $secretHash,
                 ],
             ]);
-            $user = $this->userRepositoryInterface->update($email, $response);
+            $this->userRepositoryInterface->update($email, $response);
 
             return $response['AuthenticationResult'];
         } catch (\Aws\Exception\AwsException $e) {
