@@ -16,7 +16,7 @@
 
 Link para a documentação do DDD no site do Miro:
 
-[https://miro.com/app/board/uXjVLsoT7N4=/](https://miro.com/app/board/uXjVLsoT7N4=/)
+[https://miro.com/app/board/uXjVLsoT7N4=/?share_link_id=143995929465](https://miro.com/app/board/uXjVLsoT7N4=/?share_link_id=143995929465)
 
 Documentação do sistema (DDD) com Event Storming, incluindo todos os passos/tipos de diagrama do 
 módulo de DDD, e utilizando a linguagem ubíqua, dos seguintes fluxos:
